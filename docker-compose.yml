@@ -14,7 +14,7 @@ services:
       - "3306:3306"
     tty: true
   app:
-    build: .
+    image: golang:1.13.5-buster
     container_name: daikanyama_app
     environment:
       MYSQL_DATABASE: $MYSQL_DATABASE
