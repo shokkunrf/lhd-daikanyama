@@ -1,12 +1,14 @@
 package controllers
 
 import (
+	"database/sql"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
 type Controller struct {
+	DB *sql.DB
 }
 
 func GetController() *Controller {
