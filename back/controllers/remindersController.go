@@ -56,9 +56,9 @@ func (controller *Controller) GetReminder(c *gin.Context) {
 			UserName: "User1",
 			Date:     time.Date(2020, 5, 20, 23, 59, 59, 0, time.Local),
 		}
-	}
 
-	if id == "2" {
+		c.JSON(http.StatusOK, res)
+	} else if id == "2" {
 		res = responseGetReminder{
 			ID:       2,
 			Title:    "hoge2",
@@ -66,9 +66,10 @@ func (controller *Controller) GetReminder(c *gin.Context) {
 			UserName: "User2",
 			Date:     time.Date(2021, 5, 20, 23, 59, 59, 0, time.Local),
 		}
+
+		c.JSON(http.StatusOK, res)
 	} else {
 		c.JSON(http.StatusNotFound, nil)
 	}
 
-	c.JSON(http.StatusOK, res)
 }

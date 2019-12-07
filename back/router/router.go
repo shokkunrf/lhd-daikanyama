@@ -19,7 +19,7 @@ func GetRoute() (*gin.Engine, error) {
 	port := os.Getenv("MYSQL_PORT")
 	dbname := os.Getenv("MYSQL_DATABASE")
 	dbarg := "?charset=utf8&parseTime=true"
-	db, err := sql.Open(user + ":" + ps + "@" + protocol + "(" + host + ":" + port + ")/" + dbname + dbarg)
+	db, err := sql.Open("mysql", user+":"+ps+"@"+protocol+"("+host+":"+port+")/"+dbname+dbarg)
 	if err != nil {
 		return nil, err
 	}
