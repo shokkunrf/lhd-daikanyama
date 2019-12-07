@@ -15,5 +15,5 @@ func GetController() *Controller {
 }
 
 func (controller *Controller) GetRoot(c *gin.Context) {
-	c.String(http.StatusOK, "OK", nil)
+	c.Redirect(http.StatusMovedPermanently, "/reminders")
 }
