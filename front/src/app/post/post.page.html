@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="modalDismiss()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>リマインダー登録</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onPostClick()">登録</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+      <ion-item>
+          <ion-label position="floating">Title</ion-label>
+          <ion-input type="text" [value]="postData.title" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>リマインド日</ion-label>
+        <ion-datetime displayFormat="YYYY年M月D日"
+            doneText="OK"
+            cancelText="キャンセル"
+            placeholder="日付を選択"
+            [value]="postData.time"
+            >
+          </ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label>リマインド時間</ion-label>
+          <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="2019/01/01"></ion-datetime>
+        </ion-item>
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea rows="6" cols="20" [value]="postData.body"></ion-textarea>
+      </ion-item>
+    </ion-list>
+</ion-content>

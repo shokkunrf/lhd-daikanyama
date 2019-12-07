@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      HCLI 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+          Reminder
+        </ion-list-header>
+        
+        <ion-item *ngFor="let item of items" routerLink="/detail/{{item.id}}">
+          <ion-label>
+            <h1>{{ item.title }}</h1>
+            <h2>{{ item.time | date: "MM/dd H:mm"}}</h2>
+            <p>{{item.body}}</p>
+          </ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="postReminder()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+</ion-content>
