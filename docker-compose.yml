@@ -1,0 +1,32 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7 
+    container_name: daikanyama_db
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    volumes:
+        - ./initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    tty: true
+  app:
+    build: .
+    container_name: daikanyama_app
+    environment:
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+    volumes:
+      - ".:/go/src/daikanyama"
+    working_dir: /go/src/daikanyama
+    ports:
+      - "8080:8080"
+    tty: true
+    depends_on:
+      - db
