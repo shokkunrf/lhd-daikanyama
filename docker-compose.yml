@@ -24,9 +24,10 @@ services:
       MYSQL_PORT: 3306
     volumes:
       - ".:/go/src/daikanyama"
-    working_dir: /go/src/daikanyama
+    working_dir: /go/src/daikanyama/back
     ports:
       - "8080:8080"
     tty: true
     depends_on:
       - db
+  
