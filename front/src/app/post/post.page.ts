@@ -8,6 +8,12 @@ import { ModalController } from '@ionic/angular';
 })
 export class PostPage implements OnInit {
 
+  postData: {
+    title: string;
+    time: string,
+    body: string
+  } = {title: null, time: null, body: null};
+
   constructor(
     public modal: ModalController,
   ) { }
@@ -16,8 +22,11 @@ export class PostPage implements OnInit {
   }
 
   modalDismiss() {
-    console.log('hoge');
     this.modal.dismiss();
+  }
+
+  onPostClick() {
+    console.log(this.postData)
   }
 
 }
