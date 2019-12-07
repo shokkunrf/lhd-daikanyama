@@ -31,7 +31,6 @@ func GetRoute() (*gin.Engine, error) {
 	r.POST("/reminders", ctrl.PostReminders)
 	r.GET("/reminders/:id", ctrl.GetReminder)
 	r.POST("/subscribe", ctrl.Subscribe)
-	r.GET("/signin", ctrl.GetLogin)
 	r.POST("/signup", ctrl.PostSignup)
 	r.POST("/signin", ctrl.PostSignin)
 
